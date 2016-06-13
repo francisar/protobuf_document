@@ -2,7 +2,8 @@
 
 上文提到，消息格式描述中的元素可以标识为optional。一个结构良好的消息中，可选的元素可以有一个，也可以没有。当一个消息被解析时，被解析的对象相应的字段会被设置为默认值。字段默认值可以作为消息描述的一部分。例如，假如你想要为SearchRequest的result_per_page字段设置默认值为10:
 
-<!--language:-->
- optional int32 result_per_page = 3 [default = 10];
+<!--language:c-->
+
+    optional int32 result_per_page = 3 [default = 10];
  
  如果在消息描述时可选字段的默认值没有声明，默认值就是该类型的默认值：比如字符串，默认值就是空字符串。bool类型，默认值是false。数值类型，默认值是0。枚举类型，默认值就是枚举类型定义中的第一个值。因此在定义枚举类型时第一个值的设置必须小心。在Updating A Message Type章节中查看如何安全的修改字段定义。
